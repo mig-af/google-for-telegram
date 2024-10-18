@@ -26,17 +26,17 @@ def sendMessage(data)->None:
     inlineButton = bot.inlineButton(boton)
 
     id = data["message"]["from"]["id"]
-    await bot.messageSend(id, "Resultado: ", reply_markp=inlineButton)
+    bot.messageSend(id, "Resultado: ", reply_markp=inlineButton)
 
 def startCommand(data):
     name = data["message"]["chat"]["first_name"]
-    await bot.messageSend(data["message"]["from"]["id"], f"Hola {name}, \nEste bot sirve como un buscador de google\nComandos disponibles /start /creditos \nA continuacion escribe como si hicieras una busqueda en google" )
+    bot.messageSend(data["message"]["from"]["id"], f"Hola {name}, \nEste bot sirve como un buscador de google\nComandos disponibles /start /creditos \nA continuacion escribe como si hicieras una busqueda en google" )
     #logging.info(f"funcion {startCommand.__name__} ejecutada con exito")
 
 
 def creditsCommand(data):
     creditos = "Creado por @pes528"
-    await bot.messageSend(data["message"]["chat"]["id"], creditos)
+    bot.messageSend(data["message"]["chat"]["id"], creditos)
     #logging.info(f"Funcion {creditsCommand.__name__} ejecutada")
     
 
@@ -56,13 +56,13 @@ def main():
 
         if(data["message"]["text"] == "/start"):
                 
-                obj = data
-                await startCommand(data)
+            obj = data
+            startCommand(data)
         
         elif(data["message"]["text"] == "/creditos"):
-                await creditsCommand(data)
+            creditsCommand(data)
         else:
-            await sendMessage(data)
+            sendMessage(data)
            
     except KeyError:
         pass
