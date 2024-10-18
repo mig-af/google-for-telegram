@@ -1,13 +1,13 @@
-from flask import Flask, request 
+from flask import Flask, request, os
 
 from api.Bot import Bot
 
 
 
-TOKEN = "6607114505:AAFUnp9YWU-XMYUZ0NoPiYExC9akq3sIgpY"
+
 obj = ""
 app = Flask(__name__)   
-bot = Bot(TOKEN)
+bot = Bot(os.environ.get("TOKEN"))
 
 
 def buttonResponse():
