@@ -1,4 +1,5 @@
-from flask import Flask, request, os
+from flask import Flask, request
+import os
 
 from api.Bot import Bot
 
