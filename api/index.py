@@ -1,5 +1,5 @@
 from flask import Flask, request 
-import asyncio
+
 from Bot import Bot
 
 
@@ -15,7 +15,7 @@ def buttonResponse():
 
 
 
-async def sendMessage(data)->None:
+def sendMessage(data)->None:
     busqueda = data["message"]["text"]
     boton = [
         {
@@ -28,13 +28,13 @@ async def sendMessage(data)->None:
     id = data["message"]["from"]["id"]
     await bot.messageSend(id, "Resultado: ", reply_markp=inlineButton)
 
-async def startCommand(data):
+def startCommand(data):
     name = data["message"]["chat"]["first_name"]
     await bot.messageSend(data["message"]["from"]["id"], f"Hola {name}, \nEste bot sirve como un buscador de google\nComandos disponibles /start /creditos \nA continuacion escribe como si hicieras una busqueda en google" )
     #logging.info(f"funcion {startCommand.__name__} ejecutada con exito")
 
 
-async def creditsCommand(data):
+def creditsCommand(data):
     creditos = "Creado por @pes528"
     await bot.messageSend(data["message"]["chat"]["id"], creditos)
     #logging.info(f"Funcion {creditsCommand.__name__} ejecutada")
@@ -43,7 +43,7 @@ async def creditsCommand(data):
 
 
 @app.route("/webhook", methods=["POST", "GET"])
-async def main():
+def main():
     
 
     data = request.json
