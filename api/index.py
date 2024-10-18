@@ -1,6 +1,6 @@
 from flask import Flask, request 
 import asyncio
-from api.Bot import Bot
+from Bot import Bot
 
 
 
