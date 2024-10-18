@@ -12,7 +12,7 @@ class Bot:
         self.url = f"https://api.telegram.org/bot{self.__token}" 
 
 
-    async def sendAudio(self, chat_id, audio):
+    def sendAudio(self, chat_id, audio):
     
         data = {
             "chat_id":chat_id,
@@ -44,7 +44,7 @@ class Bot:
             }
 
 
-    async def messageSend(self, chat_id, message, reply_markp=None):
+    def messageSend(self, chat_id, message, reply_markp=None):
  
         data = {
         "chat_id":chat_id,
@@ -58,7 +58,7 @@ class Bot:
 
 
 
-    async def sendChatAction(self, chat_id:int, action:str):
+    def sendChatAction(self, chat_id:int, action:str):
 
         """
         id: <int>
