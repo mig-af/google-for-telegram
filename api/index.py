@@ -1,6 +1,6 @@
 from flask import Flask, request 
 
-from Bot import Bot
+from api.Bot import Bot
 
 
 
