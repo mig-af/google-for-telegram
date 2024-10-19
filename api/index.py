@@ -8,7 +8,7 @@ from api.Bot import Bot
 
 obj = ""
 app = Flask(__name__)   
-bot = Bot(os.environ.get("TOKEN"))
+bot = Bot(os.environ.get("MYTOKEN"))
 
 
 def buttonResponse():
